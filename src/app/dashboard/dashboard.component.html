@@ -1,0 +1,48 @@
+<section class="h-300" >
+  <div class="container py-5 h-100" >
+    <div class="row d-flex justify-content-center align-items-center h-100" style="overflow-y: scroll;">
+      <div class="col">
+        <div class="card" id="list1" style="border-radius: .75rem; background-color: #eff1f2;">
+          <div class="card-body py-4 px-4 px-md-5">
+
+            <p class="h1 text-center mt-3 mb-4 pb-3 text-primary">
+              <i class="fas fa-check-square me-1"></i>
+              <u>My Todo-s</u>
+            </p>
+
+            <div class="pb-2">
+              <div class="card">
+                <div class="card-body">
+                  <form (ngSubmit)="newTask(newTaskForm)" #newTaskForm="ngForm" class="d-flex flex-row align-items-center">
+                    <input type="text" class="form-control form-control-lg" id="taskname" name="taskname"  ngModel placeholder="TASK NAME" style="width: 30%; margin-right: 10px;">
+                    <input type="text" class="form-control form-control-lg" id="description" name="description"  ngModel placeholder="DETAILS">
+                    <a href="#!" data-mdb-tooltip-init title="Set due date"><i
+                        class="fas fa-calendar-alt fa-lg me-3"></i></a>
+                    <div>
+                      <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Add</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4">
+
+          
+            <form  #TaskForm="ngForm" class="inputfield" *ngFor="let task of tasks">
+              <h3>TASK NAME: {{ task['taskname'] }}</h3>
+              <p>DETAILS: {{ task['description'] }}</p>
+              <div class="button_holder">
+                <a routerLink="/edit/{{ task['taskid'] }}" > EDIT</a>
+                <a routerLink="/delete/{{ task['taskid'] }}" > DELETE</a>
+              </div>
+            </form>
+            
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+<form (ngSubmit)="deleteTask(taskForm)" #taskForm="ngForm">
+    <h3>DELETING TASK #: {{ taskData['taskid'] }}</h3>
+    <label for="taskname"> TASK NAME:</label>
+    <input type="text" name="taskname" id="taskname" ngModel>
+    
+    <label for="description">DESCRIPTION</label>
+    <input type="text" name="description" id="description" ngModel>
+    
+    <button type="submit">DELETE</button>
+    </form>
+    
